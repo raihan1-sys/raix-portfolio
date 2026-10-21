@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raix Web Development | Bespoke, high-performance websites</title>
+<meta name="description" content="Raix Web Development builds fast, responsive websites and web apps with React, Next.js and Tailwind CSS.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06100c;--bg2:#0a1812;--bg3:#1a3a2b;--bone:#eaf2ec;--em:#34d399;--emd:#059669;--am:#f5b544;
+--display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"DM Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--bone);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}ul{list-style:none;padding:0}
+:focus-visible{outline:2px solid var(--em);outline-offset:3px;border-radius:6px}
+::selection{background:var(--em);color:var(--bg)}
+.ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:72rem;margin:0 auto}
+section{padding:6rem 1.25rem}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.05}
+h2{font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;max-width:48rem}
+.muted{color:rgba(234,242,236,.68)}
+.glass{background:rgba(234,242,236,.04);border:1px solid rgba(234,242,236,.1);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.9rem 1.5rem;font-weight:700;font-family:inherit;font-size:1rem;border:0;cursor:pointer;transition:background .2s,border-color .2s}
+.btn.pri{background:var(--em);color:var(--bg)}.btn.pri:hover{background:var(--am)}
+.btn.sec{border:1px solid rgba(234,242,236,.1)}.btn.sec:hover{border-color:rgba(52,211,153,.6)}
+
+/* nav */
+header{position:fixed;inset:1rem 0 auto;z-index:50;padding:0 1rem}
+nav{max-width:64rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;border-radius:999px;padding:.5rem .5rem .5rem 1.25rem}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem}.logo span{color:var(--em)}
+nav ul{display:none;gap:1.75rem;font-size:.9rem;color:rgba(234,242,236,.7)}nav ul a:hover{color:var(--bone)}
+nav .btn{padding:.55rem 1rem;font-size:.9rem}
+@media(min-width:768px){nav ul{display:flex}}
+
+/* hero */
+#top{position:relative;overflow:hidden;padding-top:10rem;padding-bottom:6rem}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.o1{right:-10rem;top:2rem;width:34rem;height:34rem;background:rgba(5,150,105,.3);filter:blur(120px)}
+.o2{left:-8rem;bottom:0;width:20rem;height:20rem;background:rgba(245,181,68,.1);filter:blur(110px)}
+.badge{display:inline-flex;align-items:center;gap:.6rem;border-radius:999px;padding:.5rem 1rem;font-size:.9rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--em);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}50%{box-shadow:0 0 0 7px rgba(52,211,153,0)}}
+h1{font-size:clamp(3rem,10vw,8.5rem);font-weight:800;line-height:.92;letter-spacing:-.04em;margin-top:2rem}
+h1 .g{color:var(--em)}h1 .a{color:var(--am)}
+.hero-row{display:grid;gap:2rem;margin-top:2.5rem}
+.hero-row p{font-size:1.15rem;max-width:34rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-start}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:42rem;margin-top:5rem;padding-top:2rem;border-top:1px solid rgba(234,242,236,.1)}
+.stats b{display:block;font-family:var(--display);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700}
+.stats span{font-size:.85rem;color:rgba(234,242,236,.6)}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.r1{animation-delay:.08s}.r2{animation-delay:.2s}.r3{animation-delay:.32s}
+@media(min-width:768px){.hero-row{grid-template-columns:1fr 1fr}.cta{justify-content:flex-end}#top{padding-top:13rem}}
+
+/* about */
+.about{display:grid;gap:3rem}
+.about h2{font-size:clamp(2rem,4vw,3rem)}
+.about p{font-size:1.1rem;margin-bottom:1.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips li{border-radius:999px;padding:.35rem 1rem;font-size:.9rem}
+@media(min-width:768px){.about{grid-template-columns:5fr 6fr;gap:6rem}}
+
+/* projects */
+.grid{display:grid;gap:1.5rem;margin-top:3.5rem}
+.card{display:flex;flex-direction:column;overflow:hidden;border-radius:1.5rem;transition:transform .2s,border-color .2s}
+.card:hover{border-color:rgba(52,211,153,.5)}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,var(--bg3),var(--bg2))}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s}
+.card:hover .thumb img{transform:scale(1.05)}
+.go{position:absolute;right:1rem;top:1rem;width:2.75rem;height:2.75rem;border-radius:50%;display:grid;place-items:center;background:var(--em);color:var(--bg);transition:background .2s}
+.card:hover .go{background:var(--am)}
+.body{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;flex:1}
+.body h3{font-size:1.5rem;font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.tags li{border:1px solid rgba(234,242,236,.15);border-radius:999px;padding:.2rem .75rem;font-size:.75rem;color:rgba(234,242,236,.7)}
+@media(min-width:768px){.grid{grid-template-columns:repeat(12,1fr)}.s7{grid-column:span 7}.s5{grid-column:span 5}}
+
+/* services */
+.bento{display:grid;gap:1.25rem;margin-top:3.5rem}
+.svc{display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem;border-radius:1.5rem;padding:1.75rem}
+.svc .ico{width:1.9rem;height:1.9rem;color:var(--em)}
+.svc h3{font-size:1.25rem;font-weight:700}.svc p{margin-top:.5rem;max-width:28rem}
+.svc.big{background:linear-gradient(135deg,rgba(5,150,105,.25),transparent)}
+.svc.big .ico{width:2.5rem;height:2.5rem;color:var(--am)}.svc.big h3{font-size:1.9rem}
+@media(min-width:768px){.bento{grid-template-columns:repeat(6,1fr)}.big{grid-column:span 4;grid-row:span 2}.sm{grid-column:span 2}.wide{grid-column:span 6}}
+
+/* contact */
+.contact{position:relative;overflow:hidden;display:grid;gap:3rem;border-radius:2rem;padding:2rem}
+.contact h2{font-size:clamp(2.2rem,5vw,3.75rem)}
+.contact .mail{display:inline-block;margin-top:1.5rem;font-weight:700;color:var(--am)}.contact .mail:hover{text-decoration:underline}
+form{position:relative;display:grid;gap:1rem}
+label{display:block;font-size:.9rem;margin-bottom:.35rem;color:rgba(234,242,236,.7)}
+input,textarea{width:100%;font:inherit;color:inherit;background:rgba(10,24,18,.7);border:1px solid rgba(234,242,236,.15);border-radius:.75rem;padding:.75rem 1rem;outline:none;transition:border-color .2s}
+input:focus,textarea:focus{border-color:var(--em)}
+::placeholder{color:rgba(234,242,236,.35)}
+#ok{color:var(--em);font-size:.9rem}
+@media(min-width:768px){.contact{grid-template-columns:1fr 1fr;padding:3.5rem}}
+
+footer{border-top:1px solid rgba(234,242,236,.1);padding:2.5rem 1.25rem;font-size:.9rem;color:rgba(234,242,236,.55)}
+footer .wrap{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:1rem}
+footer .soc{display:flex;gap:1.25rem}footer .soc a:hover{color:var(--em)}footer .ico{width:1.3rem;height:1.3rem}
+@media(min-width:768px){footer .wrap{flex-direction:row}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rise,.dot{animation:none}.card,.thumb img{transition:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7v10H7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M18 16l4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="14" width="9" height="7" rx="1"/><rect x="16" y="14" width="5" height="7" rx="1"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 00-2.9-.1zM12 15l-3-3a22 22 0 012-4 12.9 12.9 0 0111-6c0 2.7-.8 7.5-6 11a22 22 0 01-4 2z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 00-1-3.5c3 0 6-2 6-5.5.1-1.3-.3-2.7-1-3.7.3-1.1.3-2.4 0-3.5 0 0-1 0-3 1.5-2.6-.6-5.4-.6-8 0C6 2 5 2 5 2c-.3 1.1-.3 2.4 0 3.5-.8 1-1.1 2.4-1 3.7 0 3.5 3 5.5 6 5.5-.4.4-.7 1-.8 1.7-.1.7-.2 1.5-.2 2.3v4M9 18c-4.5 2-5-2-7-2"/></symbol>
+</svg>
+
+<header>
+  <nav class="glass" aria-label="Main">
+    <a href="#top" class="logo">Raix<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn pri">Start a project</a>
+  </nav>
+</header>
+
+<main>
+  <section id="top">
+    <div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div class="badge glass rise"><span class="dot"></span>Available for new projects</div>
+      <h1 class="rise r1">Websites that look <span class="g">sharp</span> and sell <span class="a">hard.</span></h1>
+      <div class="hero-row rise r2">
+        <p class="muted">Raix Web Development builds bespoke, high-performance websites and web apps for businesses that want more than a template.</p>
+        <div class="cta">
+          <a href="#work" class="btn pri">View projects <svg class="ico"><use href="#i-down"/></svg></a>
+          <a href="#contact" class="btn sec glass"><svg class="ico"><use href="#i-mail"/></svg> Get in touch</a>
+        </div>
+      </div>
+      <dl class="stats rise r3">
+        <div><b>6</b><span>live client sites</span></div>
+        <div><b>100%</b><span>responsive builds</span></div>
+        <div><b>Vercel</b><span>global edge hosting</span></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <h2>Built fast, so your visitors never wait.</h2>
+      <div>
+        <p class="muted">I design and build lightning-fast, responsive web applications with modern tools. Every project starts with your goals: more bookings, more enquiries, more trust. Then I build a site that does that job on every screen size.</p>
+        <p class="muted">Clean code, accessible markup and optimized assets mean pages that load quickly, rank well and are easy to maintain.</p>
+        <ul class="chips">
+          <li class="glass">React</li><li class="glass">Next.js</li><li class="glass">Tailwind CSS</li><li class="glass">Vite</li><li class="glass">TypeScript</li><li class="glass">Vercel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Selected work, live and in production.</h2>
+      <p class="muted" style="margin-top:1rem;max-width:34rem">Every card links to the real deployed site. Click through and try them.</p>
+      <div class="grid" id="projects"></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What I can build for you.</h2>
+      <div class="bento">
+        <article class="svc glass big"><svg class="ico"><use href="#i-code"/></svg><div><h3>Custom web development</h3><p class="muted">Fast, tailor-made sites and web apps in React and Next.js. No templates, no bloat.</p></div></article>
+        <article class="svc glass sm"><svg class="ico"><use href="#i-layout"/></svg><div><h3>UI/UX implementation</h3><p class="muted">Your designs, built pixel-accurate and fully responsive.</p></div></article>
+        <article class="svc glass sm"><svg class="ico"><use href="#i-rocket"/></svg><div><h3>Landing page optimization</h3><p class="muted">Sharper copy, faster loads and clearer calls to action to lift conversions.</p></div></article>
+        <article class="svc glass wide"><svg class="ico"><use href="#i-bag"/></svg><div><h3>E-commerce &amp; business solutions</h3><p class="muted">Online stores, booking flows and lead capture that fit how your business sells.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact glass">
+      <div class="orb" aria-hidden="true" style="left:-5rem;bottom:-8rem;width:18rem;height:18rem;background:rgba(5,150,105,.3);filter:blur(100px)"></div>
+      <div style="position:relative">
+        <h2>Have a site in mind? Let's build it.</h2>
+        <p class="muted" style="margin-top:1.25rem;max-width:28rem">Tell me about your business and what you need. I reply within one working day.</p>
+        <a class="mail" id="mailLink" href="#"></a>
+      </div>
+      <form id="form">
+        <div><label for="name">Name</label><input id="name" name="name" required autocomplete="name" placeholder="Your name"></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com"></div>
+        <div><label for="message">Project details</label><textarea id="message" name="message" rows="5" required placeholder="What do you need built?"></textarea></div>
+        <div><button class="btn pri" type="submit"><svg class="ico"><use href="#i-send"/></svg> Send message</button></div>
+        <p id="ok" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="yr"></span> Raix Web Development. All rights reserved.</p>
+    <div class="soc">
+      <a id="gh" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="ico"><use href="#i-git"/></svg></a>
+      <a id="ml" href="#" aria-label="Email"><svg class="ico"><use href="#i-mail"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+const CONTACT = { email: "raihanibnsuleiman@gmail.com", github: "https://github.com/raihan1-sys" };
+const PROJECTS = [
+  { t: "Lumera Luxury", d: "A refined real estate showcase with immersive property listings and enquiry flow.", u: "https://lumera1-blond.vercel.app", tags: ["Next.js","Tailwind","Real Estate"], s: 7 },
+  { t: "Nuve Heritage", d: "Luxury hotel experience built around rooms, gallery and direct booking.", u: "https://nuve-heritage.vercel.app", tags: ["React","Tailwind","Hospitality"], s: 5 },
+  { t: "Saffron House", d: "Warm, appetite-first restaurant site with menu and reservations.", u: "https://saffron-house-six.vercel.app", tags: ["Next.js","Tailwind","Restaurant"], s: 5 },
+  { t: "Grooming Sanctuary", d: "Barber and salon site that turns visitors into booked appointments.", u: "https://grooming-sanctuary.vercel.app", tags: ["React","Vite","Salon"], s: 7 },
+  { t: "Magnanimous Electrical Services", d: "Trust-focused service site for an electrical contractor, built to generate calls.", u: "https://magnanimous-electrical-services.vercel.app", tags: ["Next.js","Tailwind","Local Business"], s: 7 },
+  { t: "Home Solutions Atlanta", d: "Clear service pages and quote requests for a home improvement company.", u: "https://home-solutions-atlanta-five.vercel.app", tags: ["React","Tailwind","Home Services"], s: 5 }
+];
+/* ================================== */
+
+const shot = u => "https://api.microlink.io/?url=" + encodeURIComponent(u) + "&screenshot=true&meta=false&embed=screenshot.url";
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+const grid = document.getElementById("projects");
+grid.innerHTML = PROJECTS.map(p => `
+  <a class="card glass s${p.s}" href="${p.u}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.t)} (opens live site)">
+    <div class="thumb">
+      <img src="${shot(p.u)}" alt="${esc(p.t)} website preview" loading="lazy" onerror="this.remove()">
+      <span class="go"><svg class="ico"><use href="#i-up"/></svg></span>
+    </div>
+    <div class="body">
+      <h3>${esc(p.t)}</h3>
+      <p class="muted">${esc(p.d)}</p>
+      <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+    </div>
+  </a>`).join("");
+
+/* hover tilt (skipped for reduced motion / touch) */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches && matchMedia("(hover:hover)").matches) {
+  grid.querySelectorAll(".card").forEach(c => {
+    c.addEventListener("mousemove", e => {
+      const r = c.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    });
+    c.addEventListener("mouseleave", () => c.style.transform = "");
+  });
+}
+
+/* contact + footer */
+const ml = document.getElementById("mailLink");
+ml.href = "mailto:" + CONTACT.email; ml.textContent = CONTACT.email;
+document.getElementById("ml").href = "mailto:" + CONTACT.email;
+const gh = document.getElementById("gh");
+gh.href = CONTACT.github;
+if (CONTACT.github.includes("your-username")) gh.hidden = true; /* hidden until you set a real link */
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const subject = encodeURIComponent("Project enquiry from " + d.get("name"));
+  const body = encodeURIComponent(d.get("message") + "\n\nReply to: " + d.get("email"));
+  location.href = "mailto:" + CONTACT.email + "?subject=" + subject + "&body=" + body;
+  document.getElementById("ok").textContent = "Your email app should open now. If it doesn't, write to " + CONTACT.email + ".";
+});
+</script>
+</body>
+</html>
